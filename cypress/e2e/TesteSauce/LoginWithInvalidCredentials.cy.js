@@ -1,7 +1,7 @@
 describe('Login with invalid credentials', () => {
 
-    // Error message for incorrect username 
-    it('Error message for incorrect username', () => {
+    // Verify error message for invalid username at login
+    it('Displays an error message when the username is incorrect', () => {
         cy.visit('https://www.saucedemo.com/');
         cy.get('[data-test="username"]').type('standard_user1');
         cy.get('[data-test="password"]').type('secret_sauce');
@@ -12,8 +12,8 @@ describe('Login with invalid credentials', () => {
         .and('contain', 'Username and password do not match any user in this service');
     })
 
-    // Error message for incorrect password
-    it('Error message for incorrect password', () => {
+    // Verify error message for invalid password at login
+    it('Displays an error message when the password is incorrect', () => {
         cy.visit('https://www.saucedemo.com/');
         cy.get('[data-test="username"]').type('standard_user');
         cy.get('[data-test="password"]').type('1234');
