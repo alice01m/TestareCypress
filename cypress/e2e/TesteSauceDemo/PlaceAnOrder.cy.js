@@ -3,7 +3,6 @@ describe('Place an order', () => {
     beforeEach(() => {
         cy.visit('https://www.saucedemo.com/');
         cy.login('standard_user', 'secret_sauce');
-        // Verificăm că suntem pe pagina de inventar
         cy.url().should('include', '/inventory.html');
         cy.get('[data-test="inventory-container"]').should('be.visible');
     });
