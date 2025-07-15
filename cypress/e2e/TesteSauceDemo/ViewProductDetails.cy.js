@@ -1,16 +1,14 @@
 describe('View product details', () =>
 {
-    it('Displays the product details', () => {
-        // Visit the website
+
+     beforeEach(() => {
         cy.visit('https://www.saucedemo.com/');
-
-        // Log in with valid credentials
-        cy.get('[data-test="username"]').type('standard_user');
-        cy.get('[data-test="password"]').type('secret_sauce');
-        cy.get('[data-test="login-button"]').click();
-
-        // Check if the inventory container is visible
+        cy.login('standard_user', 'secret_sauce');
         cy.get('[data-test="inventory-container"]').should('be.visible');
+    });
+
+
+    it('Displays the product details', () => {
 
         // Go to the product details page
         cy.get('[data-test="inventory-item-sauce-labs-backpack-img"]').click();
@@ -19,7 +17,7 @@ describe('View product details', () =>
         cy.get('.inventory_details_desc_container').should('be.visible');
 
         // Check if the product name is displayed
-        cy.get('[data-test="inventory-item-name"]').should('contain', 'Sauce Labs Backpack');
+        cy.get('[data-test="inventory-item-name"]').should('contain.text', 'Sauce Labs Backpack');
 
         // Check if the description and the price are visible
         cy.get('[data-test="inventory-item-desc"]').should('be.visible');
