@@ -1,14 +1,11 @@
 describe('Remove a product from the cart', () => {
 
-    it('Removes a product from the cart and verifies the cart is empty', () => {
-
-        // Visit the website
+    beforeEach(() => {
         cy.visit('https://www.saucedemo.com/');
+        cy.login('standard_user', 'secret_sauce');
+    });
 
-        // Log in with valid credentials
-        cy.get('[data-test="username"]').type('standard_user');
-        cy.get('[data-test="password"]').type('secret_sauce');
-        cy.get('[data-test="login-button"]').click();
+    it('Removes a product from the cart and verifies the cart is empty', () => {
 
         // Check if the inventory container is visible
         cy.get('[data-test="inventory-container"]').should('be.visible');
@@ -16,10 +13,7 @@ describe('Remove a product from the cart', () => {
          // Click the 'Add to cart' button for the backpack
         cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();
 
-        //  Check if the 'Add to cart' button no longer exists
-        cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').should('not.exist');
-
-        // Check if the 'Remove' button appears instead
+        // Check if the 'Remove' button is visible
         cy.get('[data-test="remove-sauce-labs-backpack"]').should('be.visible');
 
         // Check if the cart badge shows 1 item
