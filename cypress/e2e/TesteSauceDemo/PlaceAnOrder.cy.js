@@ -1,16 +1,14 @@
 describe('Place an order', () => {
+
+    beforeEach(() => {
+        cy.visit('https://www.saucedemo.com/');
+        cy.login('standard_user', 'secret_sauce');
+        // Verificăm că suntem pe pagina de inventar
+        cy.url().should('include', '/inventory.html');
+        cy.get('[data-test="inventory-container"]').should('be.visible');
+    });
     
     it('Adds a product to the cart and completes the checkout process', () => {
-        // Visit the website
-        cy.visit('https://www.saucedemo.com/');
-
-        // Log in with valid credentials
-        cy.get('[data-test="username"]').type('standard_user');
-        cy.get('[data-test="password"]').type('secret_sauce');
-        cy.get('[data-test="login-button"]').click();
-
-        // Check if the inventory container is visible
-        cy.get('[data-test="inventory-container"]').should('be.visible');
 
         // Click the 'Add to cart' button for the backpack
         cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();
