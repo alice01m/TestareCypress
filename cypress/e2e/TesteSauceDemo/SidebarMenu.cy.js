@@ -1,14 +1,11 @@
 describe('Sidebar Menu', () => {
+    
+    beforeEach(() => {
+        cy.visit('https://www.saucedemo.com/');
+        cy.login('standard_user', 'secret_sauce');
+    });
 
     it('Opens and closes the sidebar menu', () => {
-
-        // Visit the website
-        cy.visit('https://www.saucedemo.com/');
-
-        // Log in with valid credentials
-        cy.get('[data-test="username"]').type('standard_user');
-        cy.get('[data-test="password"]').type('secret_sauce');
-        cy.get('[data-test="login-button"]').click();
 
         // Click the sidebar menu button
         cy.get('#react-burger-menu-btn').click();
