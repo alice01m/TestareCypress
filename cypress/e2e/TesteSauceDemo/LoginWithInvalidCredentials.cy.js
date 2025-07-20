@@ -1,11 +1,7 @@
 describe('Login with invalid credentials', () => {
 
     const ERROR_MSG = 'Username and password do not match any user in this service';
-
-    beforeEach(() => {
-        cy.visit('https://www.saucedemo.com/');
-    });
-
+    
     // Verify error message for invalid username at login
     it('Displays an error message when the username is incorrect', () => {
         cy.login('standard_user1', 'secret_sauce');

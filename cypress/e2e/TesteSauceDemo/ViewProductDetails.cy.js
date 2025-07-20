@@ -1,14 +1,9 @@
-describe('View product details', () =>
-{
-
-     beforeEach(() => {
-        cy.visit('https://www.saucedemo.com/');
-        cy.login('standard_user', 'secret_sauce');
-        cy.get('[data-test="inventory-container"]').should('be.visible');
-    });
-
+describe('View product details', () => { 
 
     it('Displays the product details', () => {
+
+        cy.login('standard_user', 'secret_sauce'); 
+        cy.get('[data-test="inventory-container"]').should('be.visible'); 
 
         // Go to the product details page
         cy.get('[data-test="inventory-item-sauce-labs-backpack-img"]').click();

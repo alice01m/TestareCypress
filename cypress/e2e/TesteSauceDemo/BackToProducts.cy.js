@@ -1,12 +1,9 @@
 describe('Back to products button', () => {
 
-    beforeEach(() => {
-        cy.visit('https://www.saucedemo.com/');
-        cy.login('standard_user', 'secret_sauce');
-        cy.get('[data-test="inventory-container"]').should('be.visible');
-    });
-
     it('Verifies if Back to products button works properly', () => {
+
+        cy.login('standard_user', 'secret_sauce');
+        cy.get('[data-test="inventory-container"]').should('be.visible'); 
 
         // Go to the product details page
         cy.get('[data-test="inventory-item-sauce-labs-backpack-img"]').click();
@@ -21,4 +18,4 @@ describe('Back to products button', () => {
         cy.get('[data-test="inventory-container"]').should('be.visible');
     })
 
-} )
+})

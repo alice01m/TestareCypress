@@ -1,13 +1,10 @@
 describe('Place an order', () => {
 
-    beforeEach(() => {
-        cy.visit('https://www.saucedemo.com/');
+    it('Adds a product to the cart and completes the checkout process', () => {
+
         cy.login('standard_user', 'secret_sauce');
         cy.url().should('include', '/inventory.html');
-        cy.get('[data-test="inventory-container"]').should('be.visible');
-    });
-    
-    it('Adds a product to the cart and completes the checkout process', () => {
+        cy.get('[data-test="inventory-container"]').should('be.visible'); 
 
         // Click the 'Add to cart' button for the backpack
         cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();

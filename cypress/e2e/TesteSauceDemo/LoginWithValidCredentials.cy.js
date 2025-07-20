@@ -1,7 +1,7 @@
-describe('Login with valid credentials', () =>{
+describe('Login with valid credentials', () => {
 
-    it('Should log in successfully with valid credentials', () =>{
-        cy.visit('https://www.saucedemo.com/');
+    it('Should log in successfully with valid credentials', () => {
+        
         cy.login('standard_user', 'secret_sauce');
 
         // Check if the user is redirected to the inventory page after login 

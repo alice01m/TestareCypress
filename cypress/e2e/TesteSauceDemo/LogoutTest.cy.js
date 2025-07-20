@@ -2,8 +2,6 @@ describe('Logout functionality', () => {
 
     it('Logs out successfully', () => {
 
-        cy.visit('https://www.saucedemo.com/');
-
         // Log in with valid credentials
         cy.login('standard_user', 'secret_sauce');
 

@@ -1,11 +1,8 @@
-describe('Remove a product from the cart', () => {
-
-    beforeEach(() => {
-        cy.visit('https://www.saucedemo.com/');
-        cy.login('standard_user', 'secret_sauce');
-    });
+describe('Remove a product from the cart', () => {   
 
     it('Removes a product from the cart and verifies the cart is empty', () => {
+
+        cy.login('standard_user', 'secret_sauce');
 
         // Check if the inventory container is visible
         cy.get('[data-test="inventory-container"]').should('be.visible');

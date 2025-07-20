@@ -1,20 +1,14 @@
-describe('Add a product to the cart', () => 
-{
-    beforeEach(() => {
-    cy.visit('https://www.saucedemo.com/');
-    cy.login('standard_user', 'secret_sauce');
-  });
+describe('Add a product to the cart', () => {
+    
+    it('Adds a product to the cart and verifies it', () => {
 
-    it('Adds a product to the cart and verifies it', () =>{
-       
+        cy.login('standard_user', 'secret_sauce');
+
         // Check if the inventory container is visible
         cy.get('[data-test="inventory-container"]').should('be.visible');
 
-        // Check if the inventory list is visible
-        cy.get('[data-test="inventory-list"]').should('be.visible');
-
-        // Check if the list is not empty
-        cy.get('[data-test="inventory-list"]').should('not.be.empty');
+        // Verify the inventory list is visible and contains items
+        cy.get('[data-test="inventory-list"]').should('be.visible').and('not.be.empty');
 
         // Click the 'Add to cart' button for the backpack
         cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();
